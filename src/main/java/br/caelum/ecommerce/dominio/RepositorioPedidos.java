@@ -10,7 +10,7 @@ import org.javamoney.moneta.Money;
 public class RepositorioPedidos {
 	
 	public List<Pedido> buscarTodosOsPedidosDeHoje(){
-		int totalDePedidos = 200000;
+		int totalDePedidos = 2000;
 		List<Pedido> pedidos = new ArrayList<>(totalDePedidos);
 		
 		for(int i = 0; i < totalDePedidos; i++) {
