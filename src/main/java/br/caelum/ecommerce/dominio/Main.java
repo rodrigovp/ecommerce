@@ -1,6 +1,8 @@
 package br.caelum.ecommerce.dominio;
 
-import br.caelum.ecommerce.dominio.jobs.RotinaNoturna;
+import java.util.ArrayList;
+import java.util.List;
+
 import br.caelum.ecommerce.integracao.CalculadoraFrete;
 import br.caelum.ecommerce.integracao.CalculadoraImposto;
 import br.caelum.ecommerce.integracao.GeradorNotaFiscal;
@@ -10,11 +12,17 @@ public class Main {
 	public static void main(String ...args) {
 		RepositorioPedidos repositorioPedidos = new RepositorioPedidos();
 		GeradorNotaFiscal geradorNotaFiscal = new GeradorNotaFiscal(new CalculadoraImposto(), new CalculadoraFrete());
-		RotinaNoturna rotina = new RotinaNoturna(repositorioPedidos, geradorNotaFiscal);
 		
 		System.out.println("Inicio...");
 		long inicio = System.currentTimeMillis();
-		rotina.gerarNotasFiscais();
+		
+		List<Pedido> pedidosDoDia = repositorioPedidos.buscarTodosOsPedidosDeHoje();
+		List<NotaFiscal> notasFiscais = new ArrayList<>();
+		pedidosDoDia.forEach(pedido -> {
+			NotaFiscal nota = geradorNotaFiscal.gerar(pedido);
+			notasFiscais.add(nota);
+		});
+		
 		long fim = System.currentTimeMillis() - inicio;
 		System.out.println("Fim! Tempo: " + fim / 1000 + " segundos");
 	}
