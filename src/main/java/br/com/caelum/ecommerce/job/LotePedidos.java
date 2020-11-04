@@ -19,7 +19,7 @@ public class LotePedidos implements Callable<List<NotaFiscal>> {
 	}
 
 	@Override
-	public List<NotaFiscal> call() throws Exception {
+	public List<NotaFiscal> call() {
 		List<NotaFiscal> notas = new ArrayList<>();
 		for(Pedido pedido : pedidos) {
 			notas.add(geradorNotaFiscal.gerar(pedido));

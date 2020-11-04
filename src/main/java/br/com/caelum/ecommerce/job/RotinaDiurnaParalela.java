@@ -23,7 +23,7 @@ public class RotinaDiurnaParalela implements RotinaDiurna {
 	
 	@Override
 	public List<NotaFiscal> gerarNotasFiscais(List<Pedido> pedidosDoDia) {
-		ExecutorService e = Executors.newFixedThreadPool(10);
+		ExecutorService e = Executors.newFixedThreadPool(5);
 		List<LotePedidos> lotesPedidos = gerarLotesPedidos(pedidosDoDia);
 		
 		List<NotaFiscal> notasFiscais = new ArrayList<>();

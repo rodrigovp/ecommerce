@@ -36,6 +36,7 @@ public class RotinaDiurnaIntegrationTest {
 	}
 	
 	@Test
+	@Timeout(value = 5, unit = SECONDS)
 	public void gerarDiversasNotasEmParalelo() {
 		RotinaDiurna rotina = new RotinaDiurnaParalela(gerador);
 		
