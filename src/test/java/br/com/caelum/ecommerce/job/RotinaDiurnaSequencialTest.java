@@ -19,7 +19,7 @@ import br.com.caelum.ecommerce.dominio.NotaFiscal;
 import br.com.caelum.ecommerce.dominio.Pedido;
 import br.com.caelum.ecommerce.integracao.GeradorNotaFiscal;
 
-public class RotinaDiurnaTest {
+public class RotinaDiurnaSequencialTest {
 
 	private RotinaDiurnaSequencial rotinaDiurna;
 	private GeradorNotaFiscal geradorNotaFiscal;
