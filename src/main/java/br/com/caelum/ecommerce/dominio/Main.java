@@ -17,6 +17,8 @@ public class Main {
 		long inicio = System.currentTimeMillis();
 		
 		List<Pedido> pedidosDoDia = repositorioPedidos.buscarTodosOsPedidosDeHoje();
+		System.out.println(String.format("Foram obtidos %d pedidos", pedidosDoDia.size()));
+		
 		List<NotaFiscal> notasFiscais = new ArrayList<>();
 		pedidosDoDia.forEach(pedido -> {
 			NotaFiscal nota = geradorNotaFiscal.gerar(pedido);
