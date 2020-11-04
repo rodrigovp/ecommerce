@@ -18,4 +18,8 @@ public class NotaFiscal {
 		return valorDoPedido.add(imposto).add(frete);
 	}
 
+	@Override
+	public String toString() {
+		return String.format("Nota: %s", lerValor());
+	}
 }
