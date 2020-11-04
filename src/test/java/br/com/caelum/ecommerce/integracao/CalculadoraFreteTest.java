@@ -12,7 +12,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import br.com.caelum.ecommerce.dominio.Pedido;
-import br.com.caelum.ecommerce.integracao.CalculadoraFrete;
 
 public class CalculadoraFreteTest {
 	

@@ -8,9 +8,6 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import org.javamoney.moneta.Money;
 import org.junit.jupiter.api.Test;
 
-import br.com.caelum.ecommerce.dominio.ItemPedido;
-import br.com.caelum.ecommerce.dominio.Pedido;
-
 public class PedidoTestt {
 	
 	@Test

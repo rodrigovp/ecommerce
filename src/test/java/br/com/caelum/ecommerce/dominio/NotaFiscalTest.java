@@ -10,9 +10,6 @@ import org.javamoney.moneta.Money;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-import br.com.caelum.ecommerce.dominio.NotaFiscal;
-import br.com.caelum.ecommerce.dominio.Pedido;
-
 public class NotaFiscalTest {
 
 	@Test

@@ -13,9 +13,6 @@ import org.junit.jupiter.api.Test;
 
 import br.com.caelum.ecommerce.dominio.NotaFiscal;
 import br.com.caelum.ecommerce.dominio.Pedido;
-import br.com.caelum.ecommerce.integracao.CalculadoraFrete;
-import br.com.caelum.ecommerce.integracao.CalculadoraImposto;
-import br.com.caelum.ecommerce.integracao.GeradorNotaFiscal;
 
 public class GeradorNotaFiscalTest {
 	
