@@ -7,20 +7,23 @@ import java.util.List;
 import br.com.caelum.ecommerce.integracao.CalculadoraFrete;
 import br.com.caelum.ecommerce.integracao.CalculadoraImposto;
 import br.com.caelum.ecommerce.integracao.GeradorNotaFiscal;
-import br.com.caelum.ecommerce.job.RotinaDiurna;
+import br.com.caelum.ecommerce.job.RotinaDiurnaSequencial;
 
 public class Main {
 	
 	public static void main(String ...args) {
 		RepositorioPedidos repositorioPedidos = new RepositorioPedidos();
 		GeradorNotaFiscal geradorNotaFiscal = new GeradorNotaFiscal(new CalculadoraImposto(), new CalculadoraFrete());
-		RotinaDiurna rotinaDiurna = new RotinaDiurna(repositorioPedidos, geradorNotaFiscal);
+		RotinaDiurnaSequencial rotinaDiurna = new RotinaDiurnaSequencial(geradorNotaFiscal);
 		
 		
 		System.out.println("Inicio...");
 		long inicio = System.currentTimeMillis();
 		
-		List<NotaFiscal> notasFiscais = rotinaDiurna.gerarNotasFiscais();
+		List<Pedido> pedidosDoDia = repositorioPedidos.buscarTodosOsPedidosDeHoje();
+		System.out.println(String.format("Foram obtidos %d pedidos", pedidosDoDia.size()));
+		
+		List<NotaFiscal> notasFiscais = rotinaDiurna.gerarNotasFiscais(pedidosDoDia);
 		
 		long fim = System.currentTimeMillis() - inicio;
 		System.out.println("Fim! Tempo: " + fim / 1000 + " segundos");
