@@ -8,12 +8,12 @@ import br.com.caelum.ecommerce.dominio.Pedido;
 import br.com.caelum.ecommerce.dominio.RepositorioPedidos;
 import br.com.caelum.ecommerce.integracao.GeradorNotaFiscal;
 
-public class RotinaNoturna {
+public class RotinaDiurna {
 	
 	private final RepositorioPedidos repositorioPedidos;
 	private final GeradorNotaFiscal geradorNotaFiscal;
 	
-	public RotinaNoturna(RepositorioPedidos repositorioPedidos, GeradorNotaFiscal geradorNotaFiscal) {
+	public RotinaDiurna(RepositorioPedidos repositorioPedidos, GeradorNotaFiscal geradorNotaFiscal) {
 		this.repositorioPedidos = repositorioPedidos;
 		this.geradorNotaFiscal = geradorNotaFiscal;
 	}
