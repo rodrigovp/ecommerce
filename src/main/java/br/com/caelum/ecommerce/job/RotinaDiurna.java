@@ -5,17 +5,21 @@ import java.util.List;
 
 import br.com.caelum.ecommerce.dominio.NotaFiscal;
 import br.com.caelum.ecommerce.dominio.Pedido;
+import br.com.caelum.ecommerce.dominio.RepositorioPedidos;
 import br.com.caelum.ecommerce.integracao.GeradorNotaFiscal;
 
-public class RotinaDiurnaSequencial {
+public class RotinaDiurna {
 	
 	private final GeradorNotaFiscal geradorNotaFiscal;
+	private final RepositorioPedidos repositorioPedidos;
 	
-	public RotinaDiurnaSequencial(GeradorNotaFiscal geradorNotaFiscal) {
+	public RotinaDiurna(RepositorioPedidos repositorioPedidos, GeradorNotaFiscal geradorNotaFiscal) {
+		this.repositorioPedidos = repositorioPedidos;
 		this.geradorNotaFiscal = geradorNotaFiscal;
 	}
 	
-	public List<NotaFiscal> gerarNotasFiscais(List<Pedido> pedidosDoDia) {
+	public List<NotaFiscal> gerarNotasFiscais() {
+		List<Pedido> pedidosDoDia = repositorioPedidos.buscarTodosOsPedidosDeHoje();
 		List<NotaFiscal> notasFiscais = new ArrayList<>();
 		pedidosDoDia.forEach(pedido -> {
 			NotaFiscal nota = geradorNotaFiscal.gerar(pedido);

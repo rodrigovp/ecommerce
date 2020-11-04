@@ -7,14 +7,14 @@ import java.util.List;
 import br.com.caelum.ecommerce.integracao.CalculadoraFrete;
 import br.com.caelum.ecommerce.integracao.CalculadoraImposto;
 import br.com.caelum.ecommerce.integracao.GeradorNotaFiscal;
-import br.com.caelum.ecommerce.job.RotinaDiurnaSequencial;
+import br.com.caelum.ecommerce.job.RotinaDiurna;
 
 public class Main {
 	
 	public static void main(String ...args) {
 		RepositorioPedidos repositorioPedidos = new RepositorioPedidos();
 		GeradorNotaFiscal geradorNotaFiscal = new GeradorNotaFiscal(new CalculadoraImposto(), new CalculadoraFrete());
-		RotinaDiurnaSequencial rotinaDiurna = new RotinaDiurnaSequencial(geradorNotaFiscal);
+		RotinaDiurna rotinaDiurna = new RotinaDiurna(geradorNotaFiscal);
 		
 		
 		System.out.println("Inicio...");

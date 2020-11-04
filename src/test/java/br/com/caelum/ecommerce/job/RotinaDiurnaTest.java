@@ -17,26 +17,30 @@ import org.junit.jupiter.api.Test;
 import br.com.caelum.ecommerce.dominio.ItemPedido;
 import br.com.caelum.ecommerce.dominio.NotaFiscal;
 import br.com.caelum.ecommerce.dominio.Pedido;
+import br.com.caelum.ecommerce.dominio.RepositorioPedidos;
 import br.com.caelum.ecommerce.integracao.GeradorNotaFiscal;
 
 public class RotinaDiurnaTest {
 
-	private RotinaDiurnaSequencial rotinaDiurna;
+	private RotinaDiurna rotinaDiurna;
 	private GeradorNotaFiscal geradorNotaFiscal;
+	private RepositorioPedidos repositorioPedidos;
 	
 	@BeforeEach
 	public void setUp() {
+		repositorioPedidos = mock(RepositorioPedidos.class);
 		geradorNotaFiscal = mock(GeradorNotaFiscal.class);
-		rotinaDiurna = new RotinaDiurnaSequencial(geradorNotaFiscal);
+		rotinaDiurna = new RotinaDiurna(repositorioPedidos, geradorNotaFiscal);
 	}
 	
 	@Test
 	public void gerarNotasFiscais() {
 		NotaFiscal notaEsperada = new NotaFiscal(pedido(), Money.of(2, REAIS), Money.of(2, REAIS));
 		
+		when(repositorioPedidos.buscarTodosOsPedidosDeHoje()).thenReturn(pedidos());
 		when(geradorNotaFiscal.gerar(any(Pedido.class))).thenReturn(notaEsperada);
 		
-		List<NotaFiscal> notasFiscais = rotinaDiurna.gerarNotasFiscais(pedidos());
+		List<NotaFiscal> notasFiscais = rotinaDiurna.gerarNotasFiscais();
 		
 		assertThat(notasFiscais, contains(notaEsperada));
 	}
