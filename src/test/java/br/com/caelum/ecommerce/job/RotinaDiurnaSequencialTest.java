@@ -21,7 +21,7 @@ import br.com.caelum.ecommerce.integracao.GeradorNotaFiscal;
 
 public class RotinaDiurnaSequencialTest {
 
-	private RotinaDiurnaSequencial rotinaDiurna;
+	private RotinaDiurna rotinaDiurna;
 	private GeradorNotaFiscal geradorNotaFiscal;
 	
 	@BeforeEach

@@ -7,7 +7,7 @@ import br.com.caelum.ecommerce.dominio.NotaFiscal;
 import br.com.caelum.ecommerce.dominio.Pedido;
 import br.com.caelum.ecommerce.integracao.GeradorNotaFiscal;
 
-public class RotinaDiurnaSequencial {
+public class RotinaDiurnaSequencial implements RotinaDiurna {
 	
 	private final GeradorNotaFiscal geradorNotaFiscal;
 	
@@ -15,6 +15,7 @@ public class RotinaDiurnaSequencial {
 		this.geradorNotaFiscal = geradorNotaFiscal;
 	}
 	
+	@Override
 	public List<NotaFiscal> gerarNotasFiscais(List<Pedido> pedidosDoDia) {
 		List<NotaFiscal> notasFiscais = new ArrayList<>();
 		pedidosDoDia.forEach(pedido -> {

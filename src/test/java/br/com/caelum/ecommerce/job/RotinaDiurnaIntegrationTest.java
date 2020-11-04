@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.javamoney.moneta.Money;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 
@@ -18,13 +19,25 @@ import br.com.caelum.ecommerce.integracao.GeradorNotaFiscal;
 
 public class RotinaDiurnaIntegrationTest {
 
+	private GeradorNotaFiscal gerador;
+	
+	@BeforeEach
+	public void setUp() {
+		gerador = 
+			new GeradorNotaFiscal(new CalculadoraImposto(), new CalculadoraFrete());
+	}
+	
 	@Test
 	@Timeout(value = 25, unit = SECONDS)
 	public void gerarDiversasNotas() {
-		GeradorNotaFiscal gerador = 
-				new GeradorNotaFiscal(new CalculadoraImposto(), new CalculadoraFrete());
+		RotinaDiurna rotina = new RotinaDiurnaSequencial(gerador);
 		
-		RotinaDiurnaSequencial rotina = new RotinaDiurnaSequencial(gerador);
+		rotina.gerarNotasFiscais(pedidos());
+	}
+	
+	@Test
+	public void gerarDiversasNotasEmParalelo() {
+		RotinaDiurna rotina = new RotinaDiurnaParalela(gerador);
 		
 		rotina.gerarNotasFiscais(pedidos());
 	}
