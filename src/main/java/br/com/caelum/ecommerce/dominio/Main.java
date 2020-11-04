@@ -14,16 +14,12 @@ public class Main {
 	public static void main(String ...args) {
 		RepositorioPedidos repositorioPedidos = new RepositorioPedidos();
 		GeradorNotaFiscal geradorNotaFiscal = new GeradorNotaFiscal(new CalculadoraImposto(), new CalculadoraFrete());
-		RotinaDiurna rotinaDiurna = new RotinaDiurna(geradorNotaFiscal);
-		
+		RotinaDiurna rotinaDiurna = new RotinaDiurna(repositorioPedidos, geradorNotaFiscal);
 		
 		System.out.println("Inicio...");
 		long inicio = System.currentTimeMillis();
 		
-		List<Pedido> pedidosDoDia = repositorioPedidos.buscarTodosOsPedidosDeHoje();
-		System.out.println(String.format("Foram obtidos %d pedidos", pedidosDoDia.size()));
-		
-		List<NotaFiscal> notasFiscais = rotinaDiurna.gerarNotasFiscais(pedidosDoDia);
+		List<NotaFiscal> notasFiscais = rotinaDiurna.gerarNotasFiscais();
 		
 		long fim = System.currentTimeMillis() - inicio;
 		System.out.println("Fim! Tempo: " + fim / 1000 + " segundos");
