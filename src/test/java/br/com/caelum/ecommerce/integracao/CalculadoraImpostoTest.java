@@ -1,6 +1,6 @@
-package br.caelum.ecommerce.integracao;
+package br.com.caelum.ecommerce.integracao;
 
-import static br.caelum.ecommerce.dominio.SystemUtils.REAIS;
+import static br.com.caelum.ecommerce.dominio.SystemUtils.REAIS;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -11,15 +11,16 @@ import org.javamoney.moneta.Money;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import br.caelum.ecommerce.dominio.Pedido;
+import br.com.caelum.ecommerce.dominio.Pedido;
+import br.com.caelum.ecommerce.integracao.CalculadoraImposto;
 
-public class CalculadoraFreteTest {
+public class CalculadoraImpostoTest {
 	
-	private CalculadoraFrete calculadora;
+	private CalculadoraImposto calculadora;
 	
 	@BeforeEach
 	public void setUp() {
-		calculadora = new CalculadoraFrete();
+		calculadora = new CalculadoraImposto();
 	}
 	
 	@Test
@@ -29,6 +30,6 @@ public class CalculadoraFreteTest {
 		
 		Money frete = calculadora.calcularComBaseEm(pedido);
 		
-		assertThat(frete, is(equalTo(Money.of(2, REAIS))));
+		assertThat(frete, is(equalTo(Money.of(4, REAIS))));
 	}
 }

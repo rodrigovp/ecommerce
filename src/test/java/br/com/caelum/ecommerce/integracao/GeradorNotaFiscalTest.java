@@ -1,6 +1,6 @@
-package br.caelum.ecommerce.integracao;
+package br.com.caelum.ecommerce.integracao;
 
-import static br.caelum.ecommerce.dominio.SystemUtils.REAIS;
+import static br.com.caelum.ecommerce.dominio.SystemUtils.REAIS;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -11,8 +11,11 @@ import org.javamoney.moneta.Money;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import br.caelum.ecommerce.dominio.NotaFiscal;
-import br.caelum.ecommerce.dominio.Pedido;
+import br.com.caelum.ecommerce.dominio.NotaFiscal;
+import br.com.caelum.ecommerce.dominio.Pedido;
+import br.com.caelum.ecommerce.integracao.CalculadoraFrete;
+import br.com.caelum.ecommerce.integracao.CalculadoraImposto;
+import br.com.caelum.ecommerce.integracao.GeradorNotaFiscal;
 
 public class GeradorNotaFiscalTest {
 	

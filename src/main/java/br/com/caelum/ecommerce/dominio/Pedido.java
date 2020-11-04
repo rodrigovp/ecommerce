@@ -1,6 +1,6 @@
-package br.caelum.ecommerce.dominio;
+package br.com.caelum.ecommerce.dominio;
 
-import static br.caelum.ecommerce.dominio.SystemUtils.REAIS;
+import static br.com.caelum.ecommerce.dominio.SystemUtils.REAIS;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,8 +1,8 @@
-package br.caelum.ecommerce.integracao;
+package br.com.caelum.ecommerce.integracao;
 
 import org.javamoney.moneta.Money;
 
-import br.caelum.ecommerce.dominio.Pedido;
+import br.com.caelum.ecommerce.dominio.Pedido;
 
 public class CalculadoraFrete {
 

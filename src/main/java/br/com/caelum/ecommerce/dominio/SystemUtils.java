@@ -1,4 +1,4 @@
-package br.caelum.ecommerce.dominio;
+package br.com.caelum.ecommerce.dominio;
 
 import javax.money.CurrencyUnit;
 import javax.money.Monetary;

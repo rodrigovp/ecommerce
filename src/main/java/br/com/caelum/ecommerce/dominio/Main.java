@@ -1,11 +1,11 @@
-package br.caelum.ecommerce.dominio;
+package br.com.caelum.ecommerce.dominio;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import br.caelum.ecommerce.integracao.CalculadoraFrete;
-import br.caelum.ecommerce.integracao.CalculadoraImposto;
-import br.caelum.ecommerce.integracao.GeradorNotaFiscal;
+import br.com.caelum.ecommerce.integracao.CalculadoraFrete;
+import br.com.caelum.ecommerce.integracao.CalculadoraImposto;
+import br.com.caelum.ecommerce.integracao.GeradorNotaFiscal;
 
 public class Main {
 	

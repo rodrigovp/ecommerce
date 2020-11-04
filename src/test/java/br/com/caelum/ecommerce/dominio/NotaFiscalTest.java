@@ -1,6 +1,6 @@
-package br.caelum.ecommerce.dominio;
+package br.com.caelum.ecommerce.dominio;
 
-import static br.caelum.ecommerce.dominio.SystemUtils.REAIS;
+import static br.com.caelum.ecommerce.dominio.SystemUtils.REAIS;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
@@ -9,6 +9,9 @@ import static org.mockito.Mockito.when;
 import org.javamoney.moneta.Money;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+
+import br.com.caelum.ecommerce.dominio.NotaFiscal;
+import br.com.caelum.ecommerce.dominio.Pedido;
 
 public class NotaFiscalTest {
 
